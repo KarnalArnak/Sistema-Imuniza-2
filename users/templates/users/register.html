@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sistema Imuniza</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/home.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
+</head>
+<body>
+    <div class="avatar">
+        <img src="{% static 'users/run_splash.jpg' %}" alt="Marathon Winner" style="max-width: 100%;">
+        <span class="solid_color"></span>
+    </div>
+    <h1>Sistema Imuniza</h1>
+    <p>Cadastrar</p>
+    <form action="" method="POST">
+        <input type="text" id="fname" name="fname" placeholder="Primeiro Nome"><br>
+        <input type="text" id="lname" name="lname" placeholder="Sobrenome"><br>
+        <input type="email" id="mail" name="mail" placeholder="E-mail"><br>
+        <input type="password" id="password" name="password" placeholder="Senha"><br><br>
+        <a href="https://www.google.com">Já está cadastrado?</a>
+        <input type="submit" id="submit" value="Enviar">
+    </form>
+</body>
+</html>
