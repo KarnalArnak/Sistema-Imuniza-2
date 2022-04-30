@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sistema Imuniza Verificação</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/otp.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
+</head>
+<body>
+    <div class="avatar">
+        <img src="{% static 'users/run_splash.jpg' %}" alt="Marathon Winner" style="max-width: 100%;">
+        <span class="solid_color"></span>
+    </div>
+    <h1>Sistema Imuniza</h1>
+    <p>Digite o código enviado ao seu E-mail</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" id="otpp" name="otpp" placeholder="Código OTP"><br>
+        <input type="submit" id="submit" value="Verificar"><br>
+    </form>
+</body>
+</html>

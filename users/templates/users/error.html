@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<script type = "text/javascript" >
+    function preventBack(){window.history.forward();}
+        setTimeout("preventBack()", 0);
+        window.onunload=function(){null};
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sistema Imuniza Error</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/error.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
+</head>
+<body>
+    <div class="avatar">
+        <img src="{% static 'users/run_splash.jpg' %}" alt="Marathon Winner" style="max-width: 100%;">
+        <span class="solid_color"></span>
+    </div>
+    <h1>Sistema Imuniza</h1>
+    <p>Algo está errado</p>
+        <a href="{% url 'register' %}">Ainda não se cadastrou?</a><br><br>
+        <a href="{% url 'login' %}">Suas informaçoes de login ou código OTP estavam incorretos?</a>
+</body>
+</html>

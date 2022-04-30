@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sistema Imuniza</title>
+    <title> Sistema Imuniza Login</title>
     <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'users/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/login.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
 </head>
 <body>
@@ -15,14 +15,12 @@
         <span class="solid_color"></span>
     </div>
     <h1>Sistema Imuniza</h1>
-    <p>Cadastrar</p>
+    <p>&nbsp;&nbsp;Entrar</p>
     <form action="" method="POST">
         {% csrf_token %}
-        <input type="text" id="name" name="name" placeholder="Nome" required><br>
-        <input type="tel" id="phone" name="phone" placeholder="Número de Telefone" pattern="[0-9]{2}\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{3}-[0-9]{5}" required><br>
-        <input type="email" id="mail" name="mail" placeholder="E-mail" required><br>
-        <input type="password" id="password" name="password" placeholder="Senha" required><br><br>
-        <a href="{% url 'login' %}">Já está cadastrado?</a>
+        <input type="email" id="mail" name="mail" placeholder="E-mail"><br>
+        <input type="password" id="password" name="password" placeholder="Senha"><br><br>
+        <a href="{% url 'register' %}">Ainda não se cadastrou?</a>
         <input type="submit" id="submit" value="Enviar">
     </form>
 </body>
