@@ -1,25 +1,45 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<script type = "text/javascript" >
-    function preventBack(){window.history.forward();}
-        setTimeout("preventBack()", 0);
-        window.onunload=function(){null};
-</script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sistema Imuniza Login</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'users/login.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Sistema Imuniza</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'users/vacinas.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
+    </head>
 <body>
-    <div class="avatar">
-        <img src="{% static 'users/run_splash.jpg' %}" alt="Marathon Winner" style="max-width: 100%;">
-        <span class="solid_color"></span>
-    </div>
     <h1>Sistema Imuniza</h1>
     <p>Bem Vindo</p>
+    <span class="solid_color"></span>
+    <div class="container">
+        <div id="data">
+            <input type="text" id="nome" placeholder="Nome Completo" required>
+            <input type="text" id="sus" placeholder="Número do SUS" required>
+            <input type="time" id="hora" min="08:00" max="16:30" required>
+            <input type="date" id="data" required>
+            <button>Agendar</button>
+        </div>
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Horário</th>
+                <th>Data</th>
+            </tr>
+
+            <tr>
+                <td>Peter</td>
+                <td>14:30</td>
+                <td>24-05-2022</td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <script src="{% static 'users/script.js' %}"></script>
+    
 </body>
 </html>
