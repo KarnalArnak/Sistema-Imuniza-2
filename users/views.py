@@ -5,8 +5,8 @@ import mysql.connector as sql
 import environ
 from django.core.mail import send_mail
 import math, random
-
 from setuptools import Require
+
 env = environ.Env()
 environ.Env.read_env()
 n = ''
@@ -14,12 +14,24 @@ ph = ''
 em = ''
 pwd = ''
 ot = ''
+sus = ''
+ddate = ''
+time = ''
+datetime = ''
+#datetime = '2021-12-31 15:40:10'
+dvacina = ''
 
 def error(request):
     return render(request, 'users/error.html')
 
 def vacMain(request):
-    return render(request, 'users/vacinas.html')
+    m=sql.connect(host= env('DATABASE_HOST'),user= env('DATABASE_USER'),passwd= env('DATABASE_PASS'),database= env('DATABASE_NAME'))
+    cursor=m.cursor()
+    c="SELECT * FROM doses;"
+    cursor.execute(c)
+    tablee=cursor.fetchall()
+
+    return render(request, 'users/vacinas.html',{'tablee':tablee})
 
 def generateOTP():
      digits = '0123456789'
@@ -95,5 +107,27 @@ def verification(request):
             print(ot)
 
     return render(request, 'users/otp.html')
+
+def appointment(request):
+    global em,n,ph,dvacina,sus,ddate,time,datetime
+    if request.method == 'POST':
+        m=sql.connect(host= env('DATABASE_HOST'),user= env('DATABASE_USER'),passwd= env('DATABASE_PASS'),database= env('DATABASE_NAME'))
+        cursor=m.cursor()
+        d=request.POST
+        for key,value in d.items():
+             if key=='dvacina':
+                 dvacina=value
+             if key=='sus':
+                 sus=value
+             if key=='ddata':
+                 ddate=value
+             if key=='hora':
+                 time=value
+        datetime = str(ddate)+' '+str(time)
+        c="INSERT INTO vaccination (name,phone_number,email,dvaccine,sus,datetime) VALUES('{}','{}','{}','{}','{}','{}');".format(n,ph,em,dvacina,sus,datetime)
+        cursor.execute(c)
+        m.commit()
+        return redirect('vacinas')
+    return render(request, 'users/schedule.html')
 
 

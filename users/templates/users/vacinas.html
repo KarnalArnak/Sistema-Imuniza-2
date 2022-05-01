@@ -1,45 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Sistema Imuniza</title>
-        <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'users/vacinas.css' %}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sistema Imuniza Verificação</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'users/feet.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/vacinas.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Trirong|Roboto">
+</head>
 <body>
-    <h1>Sistema Imuniza</h1>
-    <p>Bem Vindo</p>
-    <span class="solid_color"></span>
-    <div class="container">
-        <div id="data">
-            <input type="text" id="nome" placeholder="Nome Completo" required>
-            <input type="text" id="sus" placeholder="Número do SUS" required>
-            <input type="time" id="hora" min="08:00" max="16:30" required>
-            <input type="date" id="data" required>
-            <button>Agendar</button>
-        </div>
-
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Horário</th>
-                <th>Data</th>
-            </tr>
-
-            <tr>
-                <td>Peter</td>
-                <td>14:30</td>
-                <td>24-05-2022</td>
-            </tr>
-        </table>
-
+    <div class="avatar">
+        <span class="solid_color"></span>
     </div>
-
-
-    <script src="{% static 'users/script.js' %}"></script>
-    
+    <h1>Sistema Imuniza</h1>
+    <a href="{% url 'schedule' %}">Agendar</a>
+    <table>
+        <tr> 
+            <th>Vacinas Dísponiveis</th>
+            <th>Doses Restantes</th> 
+        </tr>
+            {% for row0 in tablee %} 
+        <tr>                        
+            <td>{{ row0.0 }}</td>
+            <td>{{ row0.1 }}</td>
+                {% endfor %}
+        </tr>
+</table>
 </body>
 </html>
